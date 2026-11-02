@@ -177,13 +177,12 @@ npm install
 npm run dev
 ```
 
-`npm run dev` runs `nodemon server.js`. nodemon is not listed in the backend's dependencies, so either install it (`npm install -D nodemon`), or just run `node server.js` instead.
 
 The server runs on `http://localhost:3000`. You should see "database connected successfullly" in the terminal if MongoDB is connected.
 
 ### 2. Start the frontend
 
-From the parent Vite project (the one with `vite.config.js` and `src/App.jsx`):
+from the project root folder (the one containing vite.config.js, index.html,and package.json);
 
 ```bash
 npm install
