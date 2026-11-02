@@ -11,7 +11,7 @@
 **/build/
 
 # Log files
-* .log
+*.log
 
 # System files
 .DS_store
