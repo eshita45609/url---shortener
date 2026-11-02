@@ -53,40 +53,53 @@ You can use it without an account to quickly shorten a link. If you sign up and 
 ## Folder Structure
 
 ```
-url-shortner/
-├── backend/
-│   ├── config/
-│   │   └── db.js                  # MongoDB connection
-│   ├── controllers/
-│   │   ├── auth.controller.js     # signup and login logic
-│   │   └── url.controller.js      # create, redirect, list and delete URLs
-│   ├── middleware/
-│   │   └── auth.middleware.js     # checks the JWT on protected routes
-│   ├── models/
-│   │   ├── url.models.js          # URL schema
-│   │   └── user.models.js         # User schema
-│   ├── routes/
-│   │   ├── auth.routes.js         # /auth/*
-│   │   ├── index.routes.js        # / and /:shortCode (redirect)
-│   │   └── url.routes.js          # /url/*
-│   ├── server.js                  # Express app entry point
-│   └── package.json
+url-shortener/
 │
-└── frontend/
-    └── components/
-        ├── LandingPage.jsx        # home page with guest shortener
-        ├── Login.jsx
-        ├── SignUp.jsx
-        ├── Dashboard.jsx          # logged-in user's dashboard
-        ├── ProtectedRoute.jsx     # blocks pages if not logged in
-        ├── AuthCard.jsx           # shared login/signup form card
-        ├── HeroSection.jsx        # shared left side of login/signup
-        ├── Navbar.jsx
-        ├── ErrorPage.jsx          # 404 page
-        └── *.css                  # styles for each component
+├── src/
+│   ├── App.jsx
+│   ├── main.jsx
+│   │
+│   └── url-shortener/
+│       │
+│       ├── backend/
+│       │   ├── config/
+│       │   ├── controllers/
+│       │   ├── middleware/
+│       │   ├── models/
+│       │   ├── routes/
+│       │   ├── package.json
+│       │   ├── package-lock.json
+│       │   └── server.js
+│       │
+│       └── frontend/
+│           └── components/
+│               ├── AuthCard.jsx
+│               ├── AuthCard.css
+│               ├── Dashboard.jsx
+│               ├── Dashboard.css
+│               ├── ErrorPage.jsx
+│               ├── ErrorPage.css
+│               ├── Global.css
+│               ├── HeroSection.jsx
+│               ├── HeroSection.css
+│               ├── LandingPage.jsx
+│               ├── LandingPage.css
+│               ├── Login.jsx
+│               ├── Login.css
+│               ├── Navbar.jsx
+│               ├── Navbar.css
+│               ├── ProtectedRoute.jsx
+│               ├── SignUp.jsx
+│               └── SignUp.css
+│
+├── .gitignore
+├── README.md
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js
 ```
 
-> **Note:** The frontend is currently run from a parent Vite + React project. The files that start the app (`package.json`, `vite.config.js`, `index.html`, `src/main.jsx` and `src/App.jsx`, which sets up the routes) live in that parent project and are not part of this repository yet. `App.jsx` imports the components from `./url-shortner/frontend/components/`.
 
 ## How It Works
 
@@ -159,7 +172,7 @@ The `.env` file is ignored by git. Don't commit it.
 ### 1. Start the backend
 
 ```bash
-cd backend
+src/url-shortener/backend
 npm install
 npm run dev
 ```
