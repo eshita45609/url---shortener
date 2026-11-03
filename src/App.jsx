@@ -6,7 +6,7 @@ import SignUp from "./url-shortener/frontend/components/SignUp";
 import Dashboard from "./url-shortener/frontend/components/Dashboard";
 import LandingPage from "./url-shortener/frontend/components/LandingPage";
 import ErrorPage from "./url-shortener/frontend/components/ErrorPage";
-import ProtectedRoute from "./url-shortner/frontend/components/ProtectedRoute";
+import ProtectedRoute from "./url-shortener/frontend/components/ProtectedRoute";
 
 
 
