@@ -39,7 +39,7 @@ function LandingPage() {
                 throw new Error("Please enter a URL");
             }
 
-            const response = await fetch("http://localhost:3000/url/guest/shorten", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/url/guest/shorten`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",

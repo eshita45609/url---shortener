@@ -105,10 +105,8 @@ function Dashboard() {
      
          async function handleShortenUrl(event) {     
                 event.preventDefault();
-            console.log("shorten button");
                 try {
-        console.log("fetch");
-        const response = await fetch("http://localhost:3000/url/shorten", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/url/shorten`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json", 
@@ -123,7 +121,7 @@ function Dashboard() {
 
         const data = await response.json();
 
-        setShortUrl(`http://localhost:3000/url/${data.shortCode}`);
+        setShortUrl(`${import.meta.env.VITE_API_URL}/url/${data.shortCode}`);
         fetchUrl();
     
     } catch(error) {
@@ -137,7 +135,7 @@ function Dashboard() {
     try {
         const token = window.localStorage.getItem("token");
 
-        const response = await fetch("http://localhost:3000/url/urls", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/url/urls`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -167,7 +165,7 @@ function Dashboard() {
 
          async function deleteUrl(id) {
         try {
-            const response = await fetch(`http://localhost:3000/url/${id}` , {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/url/${id}` , {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -188,7 +186,7 @@ function Dashboard() {
     }
 
          async function copyShortUrl(shortCode) {
-       const shortUrl = `http://localhost:3000/${shortCode}`;
+       const shortUrl = `${import.meta.env.VITE_API_URL}/${shortCode}`;
 
        await navigator.clipboard.writeText(shortUrl);
      }
@@ -399,7 +397,7 @@ function Dashboard() {
                                         </td>
 
                                         <td className="short-url-cell">
-                                            <a href={`http://localhost:3000/${url.shortCode}`} target="_blank" rel="noreferrer">http://localhost:3000/{url.shortCode}</a>
+                                            <a href={`${import.meta.env.VITE_API_URL}/${url.shortCode}`} target="_blank" rel="noreferrer">{`${import.meta.env.VITE_API_URL}/${url.shortCode}`}</a>
                                         </td>
 
 

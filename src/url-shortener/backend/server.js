@@ -14,7 +14,7 @@ app.use(express.json());
 
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173" , "https://url-shortener-eshita-project.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));
@@ -39,10 +39,10 @@ app.use("/" , indexRoute);
 app.use("/url", urlRoute);
 app.use("/auth" , authRoute);
 
+const PORT = process.env.PORT || 3000;
 
-
-app.listen(3000, (req,res) => {
-    console.log("express is working");
+app.listen(PORT, () => {
+    console.log(`Express is working on port ${PORT}`);
     
 
 });
